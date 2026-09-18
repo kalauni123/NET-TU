@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCQ Master Portal | Dipendra Prasad Kalauni</title>
+    
+    <style>
+        /* Premium Elegant Fonts: Playfair Display (Serif) & Outfit (Sans-Serif) */
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&display=swap');
+
+        :root {
+            /* Elegant Creamy White Backgrounds */
+            --bg-cream: #FAF6F0;
+            --bg-pearl: #FFFDF9;
+            --bg-ivory: #F2EBE1;
+            
+            /* Blue and Black Font Palette */
+            --accent-rich: #0F172A; 
+            --accent-blue: #1D4ED8; 
+            --accent-gradient: linear-gradient(135deg, #1E40AF 0%, #3B82F6 100%);
+            
+            --card-glass: rgba(255, 255, 255, 0.75);
+            --border-glass: rgba(255, 255, 255, 0.9);
+            --border-accent: rgba(29, 78, 216, 0.2);
+            
+            --text-dark: #000000; 
+            --text-medium: #334155; 
+            
+            --shadow-soft: 0 20px 40px -10px rgba(15, 23, 42, 0.1);
+            --shadow-glow: 0 10px 25px -5px rgba(29, 78, 216, 0.25);
+        }
+
+        * { 
+            box-sizing: border-box; 
+            margin: 0; 
+            padding: 0; 
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body { 
+            font-family: 'Outfit', sans-serif; 
+            background: linear-gradient(-45deg, var(--bg-pearl), var(--bg-ivory), var(--bg-cream), var(--bg-pearl));
+            background-size: 400% 400%;
+            animation: gradientFlow 15s ease infinite;
+            color: var(--text-dark); 
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+        }
+
+        @keyframes gradientFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Elegant Header */
+        .header { 
+            width: 100%;
+            background: rgba(255, 253, 249, 0.85); 
+            backdrop-filter: blur(12px); 
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-glass); 
+            padding: 1.5rem 1rem; 
+            position: sticky; 
+            top: 0; 
+            z-index: 100; 
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05);
+        }
+        
+        .header-title { 
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem; 
+            font-weight: 800; 
+            color: var(--accent-rich);
+            letter-spacing: -0.01em; 
+        }
+        
+        .header-subtitle { 
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.8rem; 
+            color: var(--text-medium); 
+            margin-top: 0.4rem; 
+            font-weight: 700; 
+            text-transform: uppercase; 
+            letter-spacing: 0.15em; 
+        }
+
+        .container { 
+            max-width: 680px; 
+            width: 100%;
+            margin: 3rem auto; 
+            padding: 0 1.25rem; 
+            flex: 1; /* Pushes footer down */
+        }
+        
+        /* Creamy Frosted Cards */
+        .card { 
+            background: var(--card-glass); 
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 2.5rem; 
+            border-radius: 24px; 
+            border: 1px solid var(--border-glass); 
+            box-shadow: var(--shadow-soft); 
+            animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes slideUp { 
+            from { opacity: 0; transform: translateY(30px) scale(0.98); } 
+            to { opacity: 1; transform: translateY(0) scale(1); } 
+        }
+
+        .hidden { display: none !important; }
+
+        h2 { 
+            font-family: 'Playfair Display', serif;
+            color: var(--accent-rich); 
+            font-weight: 800; 
+            font-style: italic;
+            letter-spacing: -0.01em; 
+            margin-bottom: 2rem; 
+            text-align: center; 
+            font-size: 2rem; 
+        }
+
+        /* Stylish Menu Buttons */
+        .btn-menu { 
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%; 
+            padding: 1.35rem 1.75rem; 
+            margin-bottom: 1.25rem;
+            border: 1px solid var(--border-glass); 
+            background: var(--bg-pearl); 
+            color: var(--text-dark); 
+            border-radius: 16px; 
+            cursor: pointer; 
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700; 
+            font-size: 1.15rem; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
+        }
+
+        .btn-menu:hover { 
+            border-color: var(--accent-blue); 
+            background: #F8FAFC;
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-glow);
+            color: var(--accent-blue);
+        }
+        
+        .btn-menu span {
+            color: var(--accent-blue);
+            font-size: 1.3rem;
+            transition: transform 0.3s ease;
+        }
+
+        .btn-menu:hover span {
+            transform: translateX(6px);
+        }
+
+        /* Elegant Subject Links */
+        .btn-link {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            padding: 1.15rem 1.5rem;
+            margin-bottom: 0.85rem;
+            background: var(--bg-pearl);
+            border: 1px solid var(--border-accent);
+            color: var(--text-dark);
+            border-radius: 14px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.05rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.01);
+        }
+
+        .btn-link::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: var(--accent-gradient);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 0;
+        }
+
+        .btn-link:hover {
+            border-color: transparent;
+            transform: scale(1.02);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .btn-link:hover::before {
+            opacity: 1;
+        }
+        
+        .btn-link span, .btn-link strong {
+            position: relative;
+            z-index: 1;
+            transition: color 0.3s ease;
+        }
+
+        .btn-link strong {
+            font-family: 'Playfair Display', serif;
+            margin-right: 15px;
+            color: var(--accent-blue);
+            font-weight: 800;
+            font-size: 1.3rem;
+            font-style: italic;
+        }
+
+        .btn-link:hover span, .btn-link:hover strong {
+            color: #ffffff;
+        }
+
+        /* Minimalist Back Button */
+        .btn-back {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            margin-top: 2.5rem;
+            background: transparent;
+            color: var(--text-dark);
+            border: 1px solid var(--border-accent);
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .btn-back:hover {
+            background: var(--accent-blue);
+            color: #ffffff;
+            border-color: var(--accent-blue);
+            box-shadow: 0 8px 20px rgba(29, 78, 216, 0.2);
+        }
+
+        /* Tiny Footer Copyright Style */
+        .footer {
+            width: 100%;
+            text-align: center;
+            padding: 1.5rem 1rem;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--text-medium);
+            letter-spacing: 0.05em;
+            border-top: 1px solid var(--border-glass);
+            background: rgba(255, 253, 249, 0.5);
+        }
+
+        /* Mobile Edge-to-Edge Optimization */
+        @media (max-width: 768px) {
+            .container { margin: 1.5rem auto; padding: 0 0.75rem; max-width: 100%; }
+            .card { padding: 2rem 1.25rem; border-radius: 20px; }
+            h2 { font-size: 1.75rem; margin-bottom: 1.75rem; }
+            .btn-menu { padding: 1.2rem 1.25rem; font-size: 1.05rem; }
+            .btn-link { padding: 1rem 1.25rem; font-size: 0.95rem; margin-bottom: 0.6rem; }
+            .btn-link strong { font-size: 1.15rem; margin-right: 10px; }
+            .header { padding: 1rem 0.5rem; }
+            .header-title { font-size: 1.5rem; }
+            .footer { padding: 1rem 0.5rem; font-size: 0.65rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="header-title">MCQ Master Portal</div>
+        <div class="header-subtitle">Created by Dipendra Prasad Kalauni</div>
+    </header>
+
+    <main class="container">
+        
+        <!-- ==========================================
+             SCREEN 1: MAIN MENU 
+             ========================================== -->
+        <section id="mainMenu" class="card">
+            <h2>Select Category</h2>
+            <button class="btn-menu" onclick="showScreen('aptitudeScreen')">
+                Aptitude Test <span>➜</span>
+            </button>
+            <button class="btn-menu" onclick="showScreen('subjectiveTypeScreen')">
+                Subjective Test <span>➜</span>
+            </button>
+        </section>
+
+        <!-- ==========================================
+             SCREEN 2: APTITUDE TEST LINKS
+             ========================================== -->
+        <section id="aptitudeScreen" class="card hidden">
+            <h2>Aptitude Test</h2>
+            
+            <a href="YOUR_GITHUB_LINK_HERE" class="btn-link"><strong>01</strong> <span>Teaching Aptitude</span></a>
+            <a href="YOUR_GITHUB_LINK_HERE" class="btn-link"><strong>02</strong> <span>Research Aptitude</span></a>
+            <a href="YOUR_GITHUB_LINK_HERE" class="btn-link"><strong>03</strong> <span>Communication Aptitude</span></a>
+            <a href="YOUR_GITHUB_LINK_HERE" class="btn-link"><strong>04</strong> <span>Information & Comm. Technology</span></a>
+            <a href="YOUR_GITHUB_LINK_HERE" class="btn-link"><strong>05</strong> <span>People, Society & Environment</span></a>
+            <a href="YOUR_GITHUB_LINK_HERE" class="btn-link"><strong>06</strong> <span>Higher Education System</span></a>
+            <a href="YOUR_GITHUB_LINK_HERE" class="btn-link"><strong>07</strong> <span>Rules & Function of TU</span></a>
+
+            <button class="btn-back" onclick="showScreen('mainMenu')">← Back to Main Menu</button>
+        </section>
+
+        <!-- ==========================================
+             SCREEN 3: SUBJECTIVE TEST MENU 
+             ========================================== -->
+        <section id="subjectiveTypeScreen" class="card hidden">
+            <h2>Select Course Level</h2>
+            <button class="btn-menu" onclick="showScreen('bscScreen')">
+                BSc Course <span>➜</span>
+            </button>
+            <button class="btn-menu" onclick="showScreen('mscScreen')">
+                MSc Courses <span>➜</span>
+            </button>
+            
+            <button class="btn-back" onclick="showScreen('mainMenu')">← Back to Main Menu</button>
+        </section>
+
+        <!-- ==========================================
+             SCREEN 4: BSc COURSE LINKS
+             ========================================== -->
+        <section id="bscScreen" class="card hidden">
+            <h2>BSc Course</h2>
+            
+            <a href="YOUR_GITHUB_LINK_HERE" class="btn-link"><strong>01</strong> <span>Mechanics</span></a>
+            <a href="YOUR_GITHUB_LINK_HERE" class="btn-link"><strong>02</strong> <span>Thermodynamics</span></a>
+            <a href="YOUR_GITHUB_LINK_HERE" class="btn-link"><strong>03</strong> <span>Electricity and Magnetism</span></a>
+            <a href="YOUR_GITHUB_LINK_HERE" class="btn-link"><strong>04</strong> <span>Optics</span></a>
+            <a href="YOUR_GITHUB_LINK_HERE" class="btn-link"><strong>05</strong> <span>Modern Physics</span></a>
+            <a href="YOUR_GITHUB_LINK_HERE" class="btn-link"><strong>06</strong> <span>Electronics</span></a>
+            <a href="YOUR_GITHUB_LINK_HERE" class="btn-link"><strong>07</strong> <span>Mathematical Physics</span></a>
+            <a href="YOUR_GITHUB_LINK_HERE" class="btn-link"><strong>08</strong> <span>Classical Physics</span></a>
+            <a href="YOUR_GITHUB_LINK_HERE" class="btn-link"><strong>09</strong> <span>Quantum Mechanics</span></a>
+            <a href="YOUR_GITHUB_LINK_HERE" class="btn-link"><strong>10</strong> <span>Nuclear Physics</span></a>
+            <a href="YOUR_GITHUB_LINK_HERE" class="btn-link"><strong>11</strong> <span>Solid State Physics</span></a>
+
+            <button class="btn-back" onclick="showScreen('subjectiveTypeScreen')">← Back to Course Level</button>
+        </section>
+
+        <!-- ==========================================
+             SCREEN 5: MSc COURSES LINKS
+             ========================================== -->
+        <section id="mscScreen" class="card hidden">
+            <h2>MSc Courses</h2>
+            
+            <a href="YOUR_GITHUB_LINK_HERE" class="btn-link"><strong>01</strong> <span>Mathematical Physics-I</span></a>
+            <a href="YOUR_GITHUB_LINK_HERE" class="btn-link"><strong>02</strong> <span>Classical Physics</span></a>
+            <a href="YOUR_GITHUB_LINK_HERE" class="btn-link"><strong>03</strong> <span>Quantum Mechanics-I</span></a>
+            <a href="YOUR_GITHUB_LINK_HERE" class="btn-link"><strong>04</strong> <span>Electronics</span></a>
+            <a href="YOUR_GITHUB_LINK_HERE" class="btn-link"><strong>05</strong> <span>Quantum Mechanics-II</span></a>
+            <a href="YOUR_GITHUB_LINK_HERE" class="btn-link"><strong>06</strong> <span>Electrodynamics-I</span></a>
+            <a href="YOUR_GITHUB_LINK_HERE" class="btn-link"><strong>07</strong> <span>Electrodynamics-II</span></a>
+            <a href="YOUR_GITHUB_LINK_HERE" class="btn-link"><strong>08</strong> <span>Solid State Physics</span></a>
+            <a href="YOUR_GITHUB_LINK_HERE" class="btn-link"><strong>09</strong> <span>Quantum Field Theory</span></a>
+            <a href="YOUR_GITHUB_LINK_HERE" class="btn-link"><strong>10</strong> <span>Mathematical Physics -II</span></a>
+            <a href="YOUR_GITHUB_LINK_HERE" class="btn-link"><strong>11</strong> <span>Electrodynamics-II</span></a>
+            <a href="YOUR_GITHUB_LINK_HERE" class="btn-link"><strong>12</strong> <span>Particle Physics</span></a>
+
+            <button class="btn-back" onclick="showScreen('subjectiveTypeScreen')">← Back to Course Level</button>
+        </section>
+
+    </main>
+
+    <!-- FOOTER COPYRIGHT SECTION -->
+    <footer class="footer">
+        © 2026 Dipendra Prasad Kalauni. All Rights Reserved.
+    </footer>
+
+    <script>
+        function showScreen(screenId) {
+            document.getElementById('mainMenu').classList.add('hidden');
+            document.getElementById('aptitudeScreen').classList.add('hidden');
+            document.getElementById('subjectiveTypeScreen').classList.add('hidden');
+            document.getElementById('bscScreen').classList.add('hidden');
+            document.getElementById('mscScreen').classList.add('hidden');
+
+            const targetScreen = document.getElementById(screenId);
+            targetScreen.classList.remove('hidden');
+            
+            targetScreen.style.animation = 'none';
+            targetScreen.offsetHeight; 
+            targetScreen.style.animation = null;
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+
+</body>
+</html>
